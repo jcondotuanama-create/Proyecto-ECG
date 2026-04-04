@@ -47,6 +47,6 @@ import os
 if not os.path.exists('results'): os.makedirs('results') # Crea carpeta si no existe
 
 plt.savefig('results/analisis_66_bpm.png', dpi=300) # Guarda en alta calidad
-print("✅ Análisis completado. Gráfica guardada en: results/analisis_66_bpm.png")
+print(" Análisis completed. Graphic saved in: results/analisis_66_bpm.png")
 plt.close() # Cierra la memoria limpiamente    
 
