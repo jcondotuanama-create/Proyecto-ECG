@@ -13,6 +13,7 @@ data/
 *.hea
 *.csv
 *.png
+!Results/ECG_derivations.png
 
 # Distribution / packaging
 .Python
