@@ -14,6 +14,8 @@ data/
 *.csv
 *.png
 !Results/ECG_derivations.png
+!Results/ECG_short_derivations.png
+!Results/analisis_66_bpm.png
 
 # Distribution / packaging
 .Python
