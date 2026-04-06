@@ -14,5 +14,5 @@ threshold = np.mean(signal) + 1.5*np.std(signal)
 
 peaks = np.where(signal > threshold)[0]
 
-print("Detected peaks:", peaks[:20])
+print("Detected peaks:", peaks)
 print("Total number of peaks:", len(peaks))
