@@ -10,13 +10,13 @@ record = wf.rdrecord(Data_path)
 signals = record.p_signal
 sampling_frequency = record.fs
 
-####Grafic the first derivation of the ECG signal.
+####Grafic the first lead of the ECG signal.
 
 plt.figure(figsize=(12, 8))                     # Create a figure with a specific size
-for i in range(signals.shape[1]):               # Iterate over the number of derivations (columns) in the signal
-    plt.subplot(signals.shape[1], 1, i+1)      # Divide the figure into subplots for each derivation
-    plt.plot(signals[:, i])                    # Plot the signal for the current derivation
-    plt.title(f'Derivation {i+1}')               # Set the title for the current subplot
+for i in range(signals.shape[1]):               # Iterate over the number of leads (columns) in the signal
+    plt.subplot(signals.shape[1], 1, i+1)      # Divide the figure into subplots for each lead
+    plt.plot(signals[:, i])                    # Plot the signal for the current lead
+    plt.title(f'Lead {i+1}')                   # Set the title for the current subplot
 plt.tight_layout()                              # Adjust the spacing between plots
 plt.xlabel("Time (samples)")
 plt.ylabel("Amplitude (mV)")
@@ -25,6 +25,6 @@ print("Signal shape:", signals.shape)
 print("Duration of ECG (seconds):", signals.shape[0] / sampling_frequency)
 plt.show()
 #Create a DataFrame with the ECG signals and save it as a CSV file.
-df = pd.DataFrame(signals, columns=[f'Derivación {i}' for i in range(signals.shape[1])])
+df = pd.DataFrame(signals, columns=[f'Lead {i+1}' for i in range(signals.shape[1])])
 df.to_csv('C:/Users/jm635/Documents/Proyecto_ECG/data/ECG_signals.csv', index=False)
 
