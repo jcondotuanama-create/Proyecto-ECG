@@ -44,7 +44,7 @@ One of the main attributes is a matrix represented by 'signals' variable whose c
  ![Texto alternativo](Results/ECG_derivations.png)
 
 Finally with `pandas` library, signals is converted into CSV format. 
-
+This script also prints the frequency and the samples number from ECG.
 
 `02_segemntation.py` script is responsible for generating a time window. ECG-signal has a vast amount of data, therefore, five seconds has been visualized to isolate the sample from first derivation.
 
@@ -55,4 +55,17 @@ You can note that there are two 02_segmentation scripts, this is due to when the
 Finally the original segmentation prints each point which is higher than threshold (35) and the fixed segmentation prints the heartbeats' real number (6).
 
 ![Texto alternativo](Results/ECG_short_derivations.png)
+(This image was created before second script with another code which was delated. You can use 'for loop' to create the plot in second script with matplotlib library.)
+
+`03_peak_detection.py` script focuses on peak detection and generating an isolated plot of the first ten seconds. This is final step of the pipeline. 
+
+'signal' variable is inverted again due to inverted polarity and time vector is created to create the function 'voltage over time'.
+
+The Adaptive Threshold is a limit calculated using the signal's mean and standard deviation using numpy library, allowing the algorithm to automatically adjust to different heart morphologies and noise levels. Similary to the second script, the peaks must surpass the limit and the same way an array is generated to be visualized into a plot. 
+
+The beats per minute (BPM) is calculated dividing the number of peaks out of total time.
+
+Finally BPM is printed and plot is generated and saved with 'os' library.
+
+The algorithm successfully detected a logic hert rate  of *66 BPM* for this specific record.   
 

@@ -13,7 +13,7 @@ fs = record.fs
 signal = record.p_signal[:fs*10, 0] 
 
 # 2. Vectorized Peak Detection
-time = np.arange(len(signal)) / fs
+time = np.arange(len(signal)) / fs # Create a time vector based on the length of the signal and the sampling frequency
 
 # --- DETECTION OF PEAKS ---
 signal_inverted = -signal 

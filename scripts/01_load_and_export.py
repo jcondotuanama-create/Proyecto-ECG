@@ -12,12 +12,12 @@ sampling_frequency = record.fs
 
 ####Grafic the first derivation of the ECG signal.
 
-plt.figure(figsize=(12, 8))                     # Crea una figura grande
-for i in range(signals.shape[1]):               # Itera por cada derivación
-    plt.subplot(signals.shape[1], 1, i+1)      # Divide la figura en subplots
-    plt.plot(signals[:, i])                    # Grafica la derivación i
-    plt.title(f'Derivación {i}')               # Pone título a cada subplot
-plt.tight_layout()                              # Ajusta los espacios entre gráficos                                      # Muestra la figura
+plt.figure(figsize=(12, 8))                     # Create a figure with a specific size
+for i in range(signals.shape[1]):               # Iterate over the number of derivations (columns) in the signal
+    plt.subplot(signals.shape[1], 1, i+1)      # Divide the figure into subplots for each derivation
+    plt.plot(signals[:, i])                    # Plot the signal for the current derivation
+    plt.title(f'Derivation {i+1}')               # Set the title for the current subplot
+plt.tight_layout()                              # Adjust the spacing between plots
 plt.xlabel("Time (samples)")
 plt.ylabel("Amplitude (mV)")
 print("Sampling frequency:", sampling_frequency)
