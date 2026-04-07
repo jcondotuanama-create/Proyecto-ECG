@@ -23,7 +23,7 @@ Configuration files like `.gitignore` have been added to avoid all Non-essential
 
 Electrocardiogram data from database is not legible by python, then it must be read through specific tools. Python libraries have been used to extract all data and developing all signals and information useful for nurses and doctors. Used python libraries are `wfdb`, `numpy`, `matplotlib` and `pandas`.
 
-**wfdb** is the Python library capable of parsing ECG-data into a Record object. Each attribute represent specific parameter from ECG. 
+**wfdb** is the Python library capable of parsing ECG-data into a Record object. Each attribute represents a specific parameter from ECG. 
 
 **Matplotlib** gives the plots from the ECG with all data which have been extracted by wfdb python library.
 
@@ -33,9 +33,9 @@ Electrocardiogram data from database is not legible by python, then it must be r
 
 ## Technical methodology
 
-Every file from **scripts** has an specific role:
+Every file from **scripts** has a specific role:
 
-`01_load_and_export.py` handles the data ingestion. `wfdb` decodes ECG-data with function **wf.rdrecord()** creating an object (record) whose attributes are used by matplotlib library to generate the signall plots.
+`01_load_and_export.py` handles the data ingestion. `wfdb` decodes ECG-data with function **wf.rdrecord()** creating an object (record) whose attributes are used by matplotlib library to generate the signal plots.
 
 One of the main attributes is a matrix represented by 'signals' variable whose columns represent each lead and whose rows represent each voltage per sample.'sampling_frequency' is the number of samples in one second. ECG measures voltage per sample, not voltage over time.
 
@@ -47,7 +47,7 @@ Finally with `pandas` library, signals is converted into CSV format which can no
 This script also prints the frequency and the samples number from ECG.
 
 
-`02_segemntation.py` script is responsible for generating a time window. ECG-signal has a vast amount of data, therefore, five seconds has been visualized to isolate the sample from first lead.
+`02_segmentation.py` script is responsible for generating a time window. ECG-signal has a vast amount of data, therefore, five seconds has been visualized to isolate the sample from first lead.
 
 You can note that there are two 02_segmentation scripts, this is due to when the five seconds from first lead are plotted, inverted polarity is observed. Thus the signals must be edited and `02_segmentation_correction` shows the correct time windowing and the detected peaks.
 
@@ -56,7 +56,7 @@ You can note that there are two 02_segmentation scripts, this is due to when the
 Finally the original segmentation prints each point which is higher than threshold (35) and the fixed segmentation prints the heartbeats' real number (6).
 
 ![Texto alternativo](Results/ECG_short_derivations.png)
-(This image was created before second script with another code which was delezted. You can use 'for loop' to create the plot in second script with matplotlib library.)
+(This image was created before second script with another code which was deleted. You can use 'for loop' to create the plot in second script with matplotlib library.)
 
 `03_peak_detection.py` script focuses on peak detection and generating an isolated plot of the first ten seconds. This is final step of the pipeline. 
 
@@ -70,7 +70,7 @@ The beats per minute (BPM) is calculated dividing the number of peaks out of tot
 
 Finally BPM is printed and plot is generated and saved with 'os' library.
 
-The algorithm successfully detected a logic heart rate  of *66 BPM* for this specific record.   
+The algorithm successfully detected a logical heart rate  of *66 BPM* for this specific record.   
 
 To sum up, the project consisted of learning how wfdb, matplotlib, pandas and numpy work. In addition to the tools, the most important learning points were:
 
