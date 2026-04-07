@@ -27,13 +27,13 @@ Electrocardiogram data from database is not legible by python, then it must be r
 
 **Matplotlib** gives the plots from the ECG with all data which have been extracted by wfdb python library.
 
-**Pandas** use ECG-data to export the processed data into a structured CSV format.
+**Pandas** uses ECG-data to export the processed data into a structured CSV format.
 
 **Numpy** was used for numerical computing and implementing the statistical logic of the peak-detection algorithm.
 
 ## Technical methodology
 
-Every file from **scripts** have an specific role:
+Every file from **scripts** has an specific role:
 
 `01_load_and_export.py` handles the data ingestion. `wfdb` decodes ECG-data with function **wf.rdrecord()** creating an object (record) whose attributes are used by matplotlib library to generate the signall plots.
 
@@ -43,7 +43,7 @@ One of the main attributes is a matrix represented by 'signals' variable whose c
 
  ![Texto alternativo](Results/ECG_derivations.png)
 
-Finally with `pandas` library, signals is converted into CSV format which can not be include due to his large size. 
+Finally with `pandas` library, signals is converted into CSV format which can not be included due to its large size. 
 This script also prints the frequency and the samples number from ECG.
 
 
@@ -56,13 +56,13 @@ You can note that there are two 02_segmentation scripts, this is due to when the
 Finally the original segmentation prints each point which is higher than threshold (35) and the fixed segmentation prints the heartbeats' real number (6).
 
 ![Texto alternativo](Results/ECG_short_derivations.png)
-(This image was created before second script with another code which was delated. You can use 'for loop' to create the plot in second script with matplotlib library.)
+(This image was created before second script with another code which was delezted. You can use 'for loop' to create the plot in second script with matplotlib library.)
 
 `03_peak_detection.py` script focuses on peak detection and generating an isolated plot of the first ten seconds. This is final step of the pipeline. 
 
 'signal' variable is inverted again due to inverted polarity and time vector is created to create the function 'voltage over time'.
 
-The Adaptive Threshold is a limit calculated using the signal's mean and standard deviation using numpy library, allowing the algorithm to automatically adjust to different heart morphologies and noise levels. Similary to the second script, the peaks must surpass the limit and the same way an array is generated to be visualized into a plot. 
+The Adaptive Threshold is a limit calculated using the signal's mean and standard deviation using numpy library, allowing the algorithm to automatically adjust to different heart morphologies and noise levels. Similarly to the second script, the peaks must surpass the limit and the same way an array is generated to be visualized into a plot. 
 
 ![Texto alternativo](Results/analisis_66_bpm.png)
 
@@ -74,7 +74,7 @@ The algorithm successfully detected a logic heart rate  of *66 BPM* for this spe
 
 To sum up, the project consisted of learning how wfdb, matplotlib, pandas and numpy work. In addition to the tools, the most important learning points were:
 
-- Understanding that ECG is a sequence of discrete voltage sample.
+- Understanding that ECG is a sequence of discrete voltage samples.
 
 - Identifying and correcting the inverted polarity.
 
